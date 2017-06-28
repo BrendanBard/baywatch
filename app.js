@@ -32,7 +32,7 @@ const app = {
     const listItem = this.renderListItem(flick)
     
     this.list.appendChild(listItem)
-    
+    const index = this.flicks.indexOf(flick.name)
     const favButton = document.createElement('button')
     const buttonDiv = document.createElement('div')
     const delButton = document.createElement('button')
@@ -48,6 +48,7 @@ const app = {
     listItem.appendChild(buttonDiv)
     favButton.addEventListener('click', this.favPress.bind(this))
     delButton.addEventListener('click', this.delPress.bind(this))
+   
     this.max ++
   },
   favPress: function(ev){
@@ -62,6 +63,7 @@ const app = {
     const item = ev.target.parentElement.parentElement
     console.log(item)
     item.remove(ev.target.parentElement.parentElement)
+    this.flicks.splice(this.index, 1)
   }
 }
 
