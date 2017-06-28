@@ -16,6 +16,7 @@ const app = {
   renderListItem: function(flick) {
      
     const item = document.createElement('li')
+    item.className = 'listClass'
     //item.textContent = flick.name
     return item
   },
@@ -40,11 +41,13 @@ const app = {
     delButton.className = 'alert button'
     delButton.textContent = 'Delete'
     buttonDiv.textContent = flick.name
+    
+    buttonDiv.className = "buttonDiv"
     buttonDiv.appendChild(favButton)
     buttonDiv.appendChild(delButton)
-    this.list.appendChild(buttonDiv)
+    listItem.appendChild(buttonDiv)
     favButton.addEventListener('click', this.favPress.bind(this))
-   
+    delButton.addEventListener('click', this.delPress.bind(this))
     this.max ++
   },
   favPress: function(ev){
@@ -55,8 +58,10 @@ const app = {
           ev.target.parentElement.style.backgroundColor = 'yellow'
       }
   },
-  delPress: function(){
-      
+  delPress: function(ev){
+    const item = ev.target.parentElement.parentElement
+    console.log(item)
+    item.remove(ev.target.parentElement.parentElement)
   }
 }
 
