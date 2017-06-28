@@ -15,7 +15,7 @@ const app = {
   renderListItem: function(flick) {
      
     const item = document.createElement('li')
-    item.textContent = flick.name
+    //item.textContent = flick.name
     return item
   },
 
@@ -28,10 +28,23 @@ const app = {
     }
     this.flicks.push(flick)
     const listItem = this.renderListItem(flick)
+    
     this.list.appendChild(listItem)
-    console.log(this.flicks)
+    
+    const favButton = document.createElement('button')
+    const buttonDiv = document.createElement('div')
+    favButton.className = 'warning button'
+    favButton.textContent = 'Fav'
+    buttonDiv.textContent = flick.name
+    buttonDiv.appendChild(favButton)
+    this.list.appendChild(buttonDiv)
+    document.addEventListener('click', this.favPress.bind(this))
+    
     this.max ++
   },
+  favPress: function(ev){
+     this.list.style.backgroundColor = 'yellow'
+  }
 }
 
 app.init({
