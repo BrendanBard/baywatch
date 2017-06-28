@@ -1,9 +1,24 @@
 .buttonDiv{
     float: right;
 }
+.nameDiv{
+    float: left;
+}
 .listClass{
 margin-bottom: 3rem;
 margin-left: 3rem;
 margin-right: 3rem;
 margin-top: 3rem;
+}
+.secondary button{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.alert button{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.warning button{
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
