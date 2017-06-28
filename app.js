@@ -48,21 +48,16 @@ const app = {
     this.max ++
   },
   favPress: function(ev){
-      this.favStat = false
-      if(this.favStat == false){
-     this.list.style.backgroundColor = 'yellow'
+      if(ev.target.parentElement.style.backgroundColor == 'yellow'){
+    ev.target.parentElement.style.backgroundColor = 'transparent'
       }
-     let favStat = true
-     //this.favButton.addEventListener('click', this.favCheck.bind(this))
-
+      else{
+          ev.target.parentElement.style.backgroundColor = 'yellow'
+      }
   },
-  favCheck: function(ev){
-    if(this.favStat = true){
-         this.list.style.backgroundColor = 'transparent'
-         this.favStat=false;
-    }
-    
-  },
+  delPress: function(){
+      
+  }
 }
 
 app.init({
