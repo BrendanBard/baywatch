@@ -62,6 +62,7 @@ const app = {
     upButton.addEventListener('click', this.upPress.bind(this))
     downButton.addEventListener('click', this.downButton.bind(this))
     this.max ++
+    f.reset();
   },
   favPress: function(ev){
       if(ev.target.parentElement.style.backgroundColor == 'yellow'){
