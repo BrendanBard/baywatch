@@ -33,5 +33,12 @@ margin-top: 3rem;
                0 0 150px #209ab2;
     text-align: center;
     padding-bottom: 2rem;
+    background-color: orangered;
 
+}
+.no-js{
+    background-color: orangered;
+}
+.grid-x{
+    background-color: orangered;
 }
