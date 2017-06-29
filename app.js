@@ -27,14 +27,22 @@ const app = {
       id: this.max + 1,
       name: f.flickName.value,
     }
+    f.reset();
     this.flicks.push(flick)
     const listItem = this.renderListItem(flick)
     
     this.list.appendChild(listItem)
     const index = this.flicks.indexOf(flick.name)
-    const favButton = document.createElement('button')
+    
     const buttonDiv = document.createElement('div')
     
+    
+    const nameDiv = document.createElement('div')
+    nameDiv.className = 'list-container'
+    nameDiv.textContent = flick.name
+    
+    
+    const favButton = document.createElement('button')
     const delButton = document.createElement('button')
     const upButton = document.createElement('button')
     const downButton = document.createElement('button')
@@ -48,8 +56,9 @@ const app = {
     favButton.textContent = 'Fav'
     delButton.className = 'alert button'
     delButton.textContent = 'Delete'
-    buttonDiv.textContent = flick.name
-    
+   
+    listItem.className = 'list-item'
+    listItem.appendChild(nameDiv)
     
     buttonDiv.className = "buttonDiv"
     buttonDiv.appendChild(upButton)
@@ -60,17 +69,18 @@ const app = {
     favButton.addEventListener('click', this.favPress.bind(this))
     delButton.addEventListener('click', this.delPress.bind(this))
     upButton.addEventListener('click', this.upPress.bind(this))
-    downButton.addEventListener('click', this.downButton.bind(this))
+    downButton.addEventListener('click', this.downPress.bind(this))
+
     this.max ++
-    f.reset();
+    
   },
   favPress: function(ev){
-      if(ev.target.parentElement.style.backgroundColor == 'yellow'){
-    ev.target.parentElement.style.backgroundColor = 'transparent'
+      if(ev.target.parentElement.parentElement.style.backgroundColor == 'yellow'){
+    ev.target.parentElement.parentElement.style.backgroundColor = 'transparent'
     favStat[max] = false
       }
       else{
-          ev.target.parentElement.style.backgroundColor = 'yellow'
+          ev.target.parentElement.parentElement.style.backgroundColor = 'yellow'
           favStat[max] = true
       }
   },

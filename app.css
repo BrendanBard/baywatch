@@ -1,5 +1,9 @@
 .buttonDiv{
     float: right;
+    margin: 3px;
+}
+.button{
+    margin: 3px;
 }
 .nameDiv{
     float: left;
@@ -10,15 +14,9 @@ margin-left: 3rem;
 margin-right: 3rem;
 margin-top: 3rem;
 }
-.secondary button{
-    margin-left: 15px;
-    margin-right: 15px;
+.list-container{
+    float: left;
 }
-.alert button{
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-.warning button{
-    padding-left: 1rem;
-    padding-right: 1rem;
+.list-item{
+    height: 3.5rem;
 }
