@@ -28,8 +28,11 @@ const app = {
       name: f.flickName.value,
     }
     f.reset();
-    this.flicks.push(flick)
+    //
+    this.flicks.unshift(flick)
     const listItem = this.renderListItem(flick)
+    //
+    
     
     this.list.appendChild(listItem)
     const index = this.flicks.indexOf(flick.name)
@@ -71,6 +74,7 @@ const app = {
     upButton.addEventListener('click', this.upPress.bind(this))
     downButton.addEventListener('click', this.downPress.bind(this))
 
+    this.list.insertBefore(listItem, this.list.firstElementChild)
     this.max ++
     
   },
