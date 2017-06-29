@@ -92,6 +92,7 @@ const app = {
     const item = ev.target.parentElement.parentElement
     item.remove(ev.target.parentElement.parentElement)
     this.flicks.splice(this.index, 1)
+    this.favStat.splice(this.index, 1)
   },
 
   upPress: function (ev) {

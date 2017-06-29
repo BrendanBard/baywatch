@@ -20,3 +20,18 @@ margin-top: 3rem;
 .list-item{
     height: 3.5rem;
 }
+
+.header{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 0 0 10px #fff,
+               0 0 20px #fff,
+               0 0 30px #fff,
+               0 0 40px #62e6ff,
+               0 0 70px #62e6ff,
+               0 0 80px #62e6ff,
+               0 0 100px #209ab2,
+               0 0 150px #209ab2;
+    text-align: center;
+    padding-bottom: 2rem;
+
+}
