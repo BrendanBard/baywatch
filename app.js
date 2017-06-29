@@ -28,29 +28,22 @@ const app = {
       name: f.flickName.value,
     }
     f.reset();
-    //
+    
     this.flicks.unshift(flick)
     const listItem = this.renderListItem(flick)
-    //
-
 
     this.list.appendChild(listItem)
     const index = this.flicks.indexOf(flick.name)
 
     const buttonDiv = document.createElement('div')
-
-
     const nameDiv = document.createElement('div')
-    nameDiv.className = 'list-container'
-    nameDiv.textContent = flick.name
-
-
     const favButton = document.createElement('button')
     const delButton = document.createElement('button')
     const upButton = document.createElement('button')
     const downButton = document.createElement('button')
 
-
+    nameDiv.className = 'list-container'
+    nameDiv.textContent = flick.name
     downButton.className = 'secondary button'
     downButton.textContent = '↓'
     upButton.className = 'secondary button'
@@ -59,16 +52,16 @@ const app = {
     favButton.textContent = 'Fav'
     delButton.className = 'alert button'
     delButton.textContent = 'Delete'
-
-    listItem.className = 'list-item'
-    listItem.appendChild(nameDiv)
-
     buttonDiv.className = "buttonDiv"
+    listItem.className = 'list-item'
+    
+    listItem.appendChild(nameDiv)
     buttonDiv.appendChild(upButton)
     buttonDiv.appendChild(downButton)
     buttonDiv.appendChild(favButton)
     buttonDiv.appendChild(delButton)
     listItem.appendChild(buttonDiv)
+    
     favButton.addEventListener('click', this.favPress.bind(this))
     delButton.addEventListener('click', this.delPress.bind(this))
     upButton.addEventListener('click', this.upPress.bind(this))
@@ -78,6 +71,7 @@ const app = {
     this.max++
 
   },
+
   favPress: function (ev) {
     if (ev.target.parentElement.parentElement.style.backgroundColor == 'teal') {
       ev.target.parentElement.parentElement.style.backgroundColor = 'transparent'
@@ -88,6 +82,7 @@ const app = {
       this.favStat[this.max] = true
     }
   },
+
   delPress: function (ev) {
     const item = ev.target.parentElement.parentElement
     item.remove(ev.target.parentElement.parentElement)
@@ -96,7 +91,8 @@ const app = {
   },
 
   upPress: function (ev) {
-
+    const item = ev.target.parentElement.parentElement
+    item.parentNode.insertBefore(item, item.previousSibling)
   },
 
   downPress: function (ev) {
