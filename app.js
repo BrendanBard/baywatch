@@ -93,10 +93,12 @@ const app = {
   upPress: function (ev) {
     const item = ev.target.parentElement.parentElement
     item.parentNode.insertBefore(item, item.previousSibling)
+    
   },
 
   downPress: function (ev) {
-
+    const item = ev.target.parentElement.parentElement.nextSibling
+    item.parentNode.insertBefore(item, item.previousSibling)
   },
 }
 
