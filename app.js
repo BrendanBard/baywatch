@@ -79,12 +79,12 @@ const app = {
 
   },
   favPress: function (ev) {
-    if (ev.target.parentElement.parentElement.style.backgroundColor == 'yellow') {
+    if (ev.target.parentElement.parentElement.style.backgroundColor == 'teal') {
       ev.target.parentElement.parentElement.style.backgroundColor = 'transparent'
       this.favStat[this.max] = false
     }
     else {
-      ev.target.parentElement.parentElement.style.backgroundColor = 'yellow'
+      ev.target.parentElement.parentElement.style.backgroundColor = 'teal'
       this.favStat[this.max] = true
     }
   },
