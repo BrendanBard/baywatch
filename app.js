@@ -1,5 +1,5 @@
 const app = {
-  init: function(selectors) {
+  init: function (selectors) {
     this.flicks = []
     this.favStat = []
     this.max = 0
@@ -8,19 +8,19 @@ const app = {
     document
       .querySelector(selectors.formSelector)
       .addEventListener(
-        'submit', 
-        this.handleSubmit.bind(this)
+      'submit',
+      this.handleSubmit.bind(this)
       )
   },
 
-  renderListItem: function(flick) {
-     
+  renderListItem: function (flick) {
+
     const item = document.createElement('li')
     item.className = 'listClass'
     return item
   },
 
-  handleSubmit: function(ev) {
+  handleSubmit: function (ev) {
     ev.preventDefault()
     const f = ev.target
     const flick = {
@@ -32,25 +32,25 @@ const app = {
     this.flicks.unshift(flick)
     const listItem = this.renderListItem(flick)
     //
-    
-    
+
+
     this.list.appendChild(listItem)
     const index = this.flicks.indexOf(flick.name)
-    
+
     const buttonDiv = document.createElement('div')
-    
-    
+
+
     const nameDiv = document.createElement('div')
     nameDiv.className = 'list-container'
     nameDiv.textContent = flick.name
-    
-    
+
+
     const favButton = document.createElement('button')
     const delButton = document.createElement('button')
     const upButton = document.createElement('button')
     const downButton = document.createElement('button')
 
-  
+
     downButton.className = 'secondary button'
     downButton.textContent = '↓'
     upButton.className = 'secondary button'
@@ -59,10 +59,10 @@ const app = {
     favButton.textContent = 'Fav'
     delButton.className = 'alert button'
     delButton.textContent = 'Delete'
-   
+
     listItem.className = 'list-item'
     listItem.appendChild(nameDiv)
-    
+
     buttonDiv.className = "buttonDiv"
     buttonDiv.appendChild(upButton)
     buttonDiv.appendChild(downButton)
@@ -75,31 +75,30 @@ const app = {
     downButton.addEventListener('click', this.downPress.bind(this))
 
     this.list.insertBefore(listItem, this.list.firstElementChild)
-    this.max ++
-    
+    this.max++
+
   },
-  favPress: function(ev){
-      if(ev.target.parentElement.parentElement.style.backgroundColor == 'yellow'){
-    ev.target.parentElement.parentElement.style.backgroundColor = 'transparent'
-    favStat[max] = false
-      }
-      else{
-          ev.target.parentElement.parentElement.style.backgroundColor = 'yellow'
-          favStat[max] = true
-      }
+  favPress: function (ev) {
+    if (ev.target.parentElement.parentElement.style.backgroundColor == 'yellow') {
+      ev.target.parentElement.parentElement.style.backgroundColor = 'transparent'
+      this.favStat[this.max] = false
+    }
+    else {
+      ev.target.parentElement.parentElement.style.backgroundColor = 'yellow'
+      this.favStat[this.max] = true
+    }
   },
-  delPress: function(ev){
+  delPress: function (ev) {
     const item = ev.target.parentElement.parentElement
-    console.log(item)
     item.remove(ev.target.parentElement.parentElement)
     this.flicks.splice(this.index, 1)
   },
 
-  upPress: function(ev){
+  upPress: function (ev) {
 
   },
 
-  downPress: function(ev){
+  downPress: function (ev) {
 
   },
 }
